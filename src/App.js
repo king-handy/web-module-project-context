@@ -13,7 +13,7 @@ function App() {
 
 	const addItem = item => {
 		// add the given item to the cart
-
+		setCart([...cart, item])
 	};
 
 	return (
@@ -24,10 +24,12 @@ function App() {
 				<Route exact path="/">
 					<Products products={products} addItem={addItem} />
 				</Route>
+
+				<Route path="/cart">
+					<ShoppingCart cart={cart} />
+				</Route>
 			</ProductContext.Provider>
-			<Route path="/cart">
-				<ShoppingCart cart={cart} />
-			</Route>
+
 		</div>
 	);
 }
